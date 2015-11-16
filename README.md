@@ -1,8 +1,5 @@
-#Sample AWS Lambda function for Alexa
-A simple [AWS Lambda](http://aws.amazon.com/lambda) function that demonstrates how to write a skill for the Amazon Echo using the Alexa SDK.
-
-## Concepts
-This simple sample has no external dependencies or session management, and shows the most basic example of how to create a Lambda function for handling Alexa Skill requests.
+#Ask Daddy
+A simple [AWS Lambda](http://aws.amazon.com/lambda) function that responds to requests in a typical daddy fashion.
 
 ## Setup
 To run this example skill you need to do two things. The first is to deploy the example code in lambda, and the second is to configure the Alexa skill to use Lambda.
@@ -36,11 +33,11 @@ To run this example skill you need to do two things. The first is to deploy the 
 9. Your skill is now saved and once you are finished testing you can continue to publish your skill.
 
 ## Examples
-    User: "Alexa, ask my daddy for ten dollars"
+    User: "Alexa, ask daddy for ten dollars"
     Alexa: "Daddy says no"
     
-    User: "Alexa, ask my daddy for an american girl doll"
+    User: "Alexa, ask daddy for an american girl doll"
     Alexa: "Daddy says no"
 
-    User: "Alexa, ask my daddy for a hug"
+    User: "Alexa, ask daddy for a hug"
     Alexa: "Daddy says absolutely!"
