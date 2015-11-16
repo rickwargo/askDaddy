@@ -1,0 +1,22 @@
+{
+  "intents": [
+    {
+      "intent": "AskDaddyIntent",
+      "slots": [
+        {
+          "name" : "Something",
+          "type": "DESIRES"
+        }
+      ]
+    },
+    {
+      "intent": "AMAZON.HelpIntent"
+    },
+    {
+      "intent": "AMAZON.StopIntent"
+    },
+    {
+      "intent": "AMAZON.CancelIntent"
+    }
+  ]
+}

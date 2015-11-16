@@ -1,0 +1,5 @@
+AskDaddyIntent {Something}
+AskDaddyIntent can I have {Something}
+AskDaddyIntent I can have {Something}
+AskDaddyIntent if I can have {Something}
+AskDaddyIntent what about {Something}
