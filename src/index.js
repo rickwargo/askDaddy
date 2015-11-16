@@ -51,7 +51,7 @@ AskDaddy.prototype.intentHandlers = {
     "AskDaddyIntent": function (intent, session, response) {
         var somethingSlot = intent.slots.Something,
             somethingName;
-        if (somethingSlot && somethingSlot.value){
+        if (somethingSlot && somethingSlot.value) {
             somethingName = somethingSlot.value.toLowerCase();
         }
 
@@ -62,8 +62,10 @@ AskDaddy.prototype.intentHandlers = {
 
         session.attributes.count += 1;
 
-        if (doneResponse) {
-            if (session.attributes.count >= 4) {
+        if (somethingName == "yes") {
+            response.ask('What would you like me to ask your daddy?', 'What can I ask him?')
+        } else if (doneResponse) {
+            if (session.attributes.count >= 3) {
                 doneResponse = "You have asked for too many things. Aren't you being a little greedy? " +
                     (doneResponse.indexOf('polite') > -1 ? 'However, ' : '') + doneResponse;
             } else {
