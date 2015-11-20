@@ -60,12 +60,15 @@ AskDaddy.prototype.intentHandlers = {
             speechOutput,
             repromptOutput;
 
+        console.log('something: ' + somethingName);
+        console.log('desireResponse: ' + desireResponse);
+
         session.attributes.count += 1;
 
         if (somethingName == "yes") {
             response.ask('What would you like me to ask your daddy?', 'What can I ask him?')
         } else if (doneResponse) {
-            if (session.attributes.count >= 3) {
+            if (session.attributes.count > 3) {
                 doneResponse = "You have asked for too many things. Aren't you being a little greedy? " +
                     (doneResponse.indexOf('polite') > -1 ? 'However, ' : '') + doneResponse;
             } else {
@@ -73,11 +76,9 @@ AskDaddy.prototype.intentHandlers = {
             }
             response.tell(doneResponse);
         } else if (desireResponse) {
-            speechOutput = {
-                speech: desireResponse,
-                type: AlexaSkill.speechOutputType.PLAIN_TEXT
-            };
-            response.tell(speechOutput);
+            speechOutput = desireResponse + " Is there anything else you want?";
+            repromptOutput = "Is there something else I can ask him?";
+            response.ask(speechOutput, repromptOutput);
         } else {
             var speech;
             if (somethingName) {
@@ -85,14 +86,8 @@ AskDaddy.prototype.intentHandlers = {
             } else {
                 speech = "Sorry, your Daddy said no. Is there anything else you want?";
             }
-            speechOutput = {
-                speech: speech,
-                type: AlexaSkill.speechOutputType.PLAIN_TEXT
-            };
-            repromptOutput = {
-                speech: "Is there something else I can ask him?",
-                type: AlexaSkill.speechOutputType.PLAIN_TEXT
-            };
+            speechOutput = speech;
+            repromptOutput = "Is there something else I can ask him?";
             response.ask(speechOutput, repromptOutput);
         }
     },
@@ -107,7 +102,7 @@ AskDaddy.prototype.intentHandlers = {
     },
 
     "AMAZON.CancelIntent": function (intent, session, response) {
-        var speechOutput = "Okay. Canceled.";
+        var speechOutput = "Okay. Goodbye.";
         response.tell(speechOutput);
     }
 };
